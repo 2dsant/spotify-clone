@@ -7,7 +7,7 @@ export async function canMatch(route: Route, segments: UrlSegment[]): Promise<bo
   const router = inject(Router);
   const spotifyService = inject(SpotifyService);
 
-  if (token) {
+  if (!token) {
     return new Promise(res => res(true));
   } else {
     return new Promise<boolean>(async (res) => {
